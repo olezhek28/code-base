@@ -18,7 +18,8 @@ func main() {
 	creditScore, err := credit_score.CalculateCreditScore(client)
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
-	} else {
-		fmt.Printf("Credit Score: %d\n", creditScore)
+		return
 	}
+
+	fmt.Printf("Credit Score: %d\n", creditScore)
 }
