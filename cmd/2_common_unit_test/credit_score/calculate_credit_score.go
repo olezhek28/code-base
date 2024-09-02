@@ -7,6 +7,7 @@ type Client struct {
 	Profession    string
 	Experience    int
 	AverageSalary float64
+	ChildCount    int
 }
 
 // CalculateCreditScore функция для расчета кредитного рейтинга
@@ -52,6 +53,10 @@ func CalculateCreditScore(client Client) int {
 		score += 200
 	} else if client.AverageSalary > 100000 {
 		score += 300
+	}
+
+	if client.ChildCount > 0 {
+		score -= 50
 	}
 
 	// Ограничение рейтинга от 0 до 1000
