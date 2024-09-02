@@ -7,6 +7,8 @@ import (
 	"os"
 	"strings"
 
+	"github.com/pkg/errors"
+
 	weatherCenter "github.com/olezhek28/code-base/cmd/4_unit_test_with_stubs/weather_center"
 )
 
@@ -42,7 +44,7 @@ func main() {
 func getWeatherAdvice(client WeatherCenterClient, city string) (string, error) {
 	temperature, err := client.GetTemperature(city)
 	if err != nil {
-		return "", err
+		return "", errors.Wrap(err, fmt.Sprintf("не удалось получить температуру у города: %s", city))
 	}
 
 	switch {

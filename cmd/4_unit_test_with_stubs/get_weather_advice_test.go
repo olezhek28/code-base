@@ -21,11 +21,11 @@ func TestGetWeatherAdvice(t *testing.T) {
 		},
 	}
 
-	client := weatherCenterStub.NewWeatherCenter()
+	clientStub := weatherCenterStub.NewWeatherCenter()
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			res, err := getWeatherAdvice(client, test.city)
+			res, err := getWeatherAdvice(clientStub, test.city)
 			require.NoError(t, err)
 			require.Equal(t, test.expected, res)
 		})
