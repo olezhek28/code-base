@@ -3,7 +3,6 @@ syntax = "proto3";
 package note_v1;
 
 import "google/protobuf/timestamp.proto";
-import "google/protobuf/wrappers.proto";
 
 option go_package = "github.com/olezhek28/code-base/6_unit_test_in_clean_arch/pkg/note_v1;note_v1";
 
@@ -22,13 +21,6 @@ message Note {
   NoteInfo info = 2;
   google.protobuf.Timestamp created_at = 3;
   google.protobuf.Timestamp updated_at = 4;
-}
-
-message UpdateNoteInfo {
-  google.protobuf.StringValue title = 1;
-  google.protobuf.StringValue context = 2;
-  google.protobuf.StringValue author = 3;
-  google.protobuf.BoolValue is_public = 4;
 }
 
 message CreateRequest {
